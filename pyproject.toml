@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "memory-puzzle"
+version = "0.1.0"
+description = "A polished Tkinter Memory/Concentration game with tests and CI"
+authors = [{ name = "Mobin Yousefi", email = "" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+keywords = ["tkinter", "game", "memory", "concentration", "education"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Games/Entertainment",
+  "Intended Audience :: Education",
+]
+
+[project.urls]
+Homepage = "https://github.com/mobinyousefi-cs/memory-puzzle"
+
+[project.optional-dependencies]
+# Game uses only the standard library. Tooling is in dev below.
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+memory-puzzle = "memory_puzzle.main:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311", "py312", "py313"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["tests"]

@@ -1,0 +1,5 @@
+# Runtime: standard library only (tkinter is bundled with CPython on most platforms)
+# Dev & CI tools:
+pytest>=7.0
+black>=24.0
+ruff>=0.6.0
